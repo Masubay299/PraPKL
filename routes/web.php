@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PengenalanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,14 +26,18 @@ Route::get('/hello', function () {
     return view('hello');
 });
 
-Route::get('/index', function () {
-    return view('pages.index');
-});
+// Route::get('/index', function () {
+//     return view('pages.index');
+// });
 
-Route::get('/biodata/{nama}', function ($a) {
-    return view('pages.index2', compact('a'));
-});
+// Route::get('/biodata/{nama}', function ($a) {
+//     return view('pages.index2', compact('a'));
+// });
 
-Route::get('/pesanan/{nama?}', function ($a = "pesanan anda kosong") {
-    return view('pages.index3', compact('a'));
-});
+// Route::get('/pesanan/{nama?}', function ($a = "pesanan anda kosong") {
+//     return view('pages.index3', compact('a'));
+// });
+
+Route::get('/pengenalan', [App\Http\Controllers\PengenalanController::class, 'pengenalan']);
+Route::get('/intro/{nama}/{alamat}/{umur}', [PengenalanController::class, 'intro']);
+Route::get('/siswa', [PengenalanController::class, 'siswa']);
