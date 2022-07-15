@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PengenalanController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +42,4 @@ Route::get('/hello', function () {
 Route::get('/pengenalan', [App\Http\Controllers\PengenalanController::class, 'pengenalan']);
 Route::get('/intro/{nama}/{alamat}/{umur}', [PengenalanController::class, 'intro']);
 Route::get('/siswa', [PengenalanController::class, 'siswa']);
+Route::get('/post', [PostController::class, 'tampil']);
