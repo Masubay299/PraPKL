@@ -42,4 +42,8 @@ Route::get('/hello', function () {
 Route::get('/pengenalan', [App\Http\Controllers\PengenalanController::class, 'pengenalan']);
 Route::get('/intro/{nama}/{alamat}/{umur}', [PengenalanController::class, 'intro']);
 Route::get('/siswa', [PengenalanController::class, 'siswa']);
-Route::get('/post', [PostController::class, 'tampil']);
+// Route::get('/post', [PostController::class, 'tampil']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('post', PostController::class);
